@@ -6,10 +6,13 @@ import com.rabbitmq.client.{Channel, ConnectionFactory}
 object RabbitMQProducer {
   def main(args: Array[String]): Unit = {
 
-    val queueName = "test-queue3"
+    val queueName = "test"
     val host = "localhost"
     val factory = new ConnectionFactory()
+
     factory.setHost(host)
+    //factory.setUsername("exp")
+    //factory.setPassword("expadmin")
     val connection = factory.newConnection()
     val channel: Channel = connection.createChannel()
     channel.queueDeclare(queueName, false, false, false, null)
